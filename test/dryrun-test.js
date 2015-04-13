@@ -5,7 +5,7 @@
 
 var assert      = require('assert'),
     SpeedCurve = require('../lib/speedcurve'),
-    spd = new SpeedCurve('np7p81l06vrufpnu0y5lzz13gkgkc5');
+    spd = new SpeedCurve('np7p81l06vrufpnu0y5lzz13gkgkc5', true);
 
 describe('Dry Run', function() {
   describe('SpeedCurve API core', function() {
