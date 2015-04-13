@@ -23,7 +23,7 @@ program
     var days = Number(options.days) || 14;
     var format = (['speedcurve', 'test'].indexOf(options.format) !== -1) ? options.format : 'speedcurve';
 
-    var spy = SpeedCurve(program.key || process.env.SPEEDCURVE_API);
+    var spy = new SpeedCurve(program.key || process.env.SPEEDCURVE_API, true);
 
     spy.sites({
       format: format,
@@ -33,6 +33,25 @@ program
     });
   });
 
+program
+  .command('deploy')
+  .option('-n, --note <str>', 'SpeedCurve API key')
+  .option('-d, --detail', 'SpeedCurve API key')
+  
+  .action(function(options){
+
+    var note = options.note || '';
+    var detail = options.detail || '';
+
+    var spy = new SpeedCurve(program.key || process.env.SPEEDCURVE_API, true);
+
+    spy.deploy({
+      note: note,
+      detail: detail
+    }, function(err, data){
+      output(data, err);
+    });
+  });
 program.parse(process.argv);
 
 if(!program.args.length) {
