@@ -18,10 +18,14 @@
   },
   "main": "lib/speedcurve.js",
   "bin": "bin/speedcurve",
+  "scripts": {
+    "test": "./node_modules/mocha/bin/mocha -R spec test/*-test.js"
+  },
   "engines": {
     "node": ">=0.10"
   },
   "dependencies": {
-    "commander": "~1.3.2"
+    "commander": "~1.3.2",
+    "mocha": "~1.12.0"
   }
 }
