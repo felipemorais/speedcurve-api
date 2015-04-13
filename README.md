@@ -5,7 +5,7 @@ SpeedCurve API Wrapper is a [NPM](https://npmjs.org) package that wraps [SpeedCu
 ## Getting started
 
 ```bash
-$ npm install speedcurve -g
+$ npm install speedcurve-api -g
 ```
 
 ## Basics

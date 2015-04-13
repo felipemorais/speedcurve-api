@@ -1,5 +1,5 @@
 {
-  "name": "speedcurve",
+  "name": "speedcurve-api",
   "version": "0.0.1",
   "description": "SpeedCurve API wrapper for NodeJS",
   "author": "Felipe Morais <luisfelipe0910@gmail.com> (http://github.com/felipemorais)",
