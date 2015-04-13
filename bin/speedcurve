@@ -1,0 +1,40 @@
+#!/usr/bin/env node
+
+var program     = require('commander'),
+    SpeedCurve = require('../lib/speedcurve');
+
+function output(str, err){
+  str = err || JSON.stringify(str);
+  process.stdout.write(str);
+  process.exit(err ?  1 : 0);
+}
+
+program
+  .version(SpeedCurve.version)
+  .option('-k, --key <your-api-key>', 'SpeedCurve API key');
+
+program
+  .command('sites')
+  .option('-d, --days <n>', 'SpeedCurve API key')
+  .option('-f, --format <format>', 'SpeedCurve API key')
+  
+  .action(function(options){
+
+    var days = Number(options.days) || 14;
+    var format = (['speedcurve', 'test'].indexOf(options.format) !== -1) ? options.format : 'speedcurve';
+
+    var spy = SpeedCurve(program.key || process.env.SPEEDCURVE_API);
+
+    spy.sites({
+      format: format,
+      days: days
+    }, function(err, data){
+      output(data, err);
+    });
+  });
+
+program.parse(process.argv);
+
+if(!program.args.length) {
+  program.help();
+}
