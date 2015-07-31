@@ -17,7 +17,7 @@ $ speedcurve deploy --note="I'm a note" --detail="I'm a longer note with way mor
 
 ### Module
 ```javascript
-var SpeedCurve = require('speedcurve');
+var SpeedCurve = require('speedcurve-api');
 var spd = new SpeedCurve('<your-api-key>', [dry-run]);
 
 spd.deploy({
